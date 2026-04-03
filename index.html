@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammed Irfan · Developer</title>
+  <meta name="description"
+    content="Muhammed Irfan V R — Full Stack & Creative Web Developer. Building stunning, responsive and interactive web experiences.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <!-- ===== LOADER ===== -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="lb">&lt;</span><span class="ln">MI</span><span class="lb">/&gt;</span>
+      </div>
+      <div class="loader-bar-track">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+      <span class="loader-pct" id="loaderPct">0%</span>
+    </div>
+  </div>
+
+  <!-- ===== CURSOR ===== -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ===== NOISE OVERLAY ===== -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo" aria-label="Home">
+      <span class="lb">&lt;</span><span class="ln">MI</span><span class="lb">/&gt;</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link" data-num="01">Home</a>
+      <a href="#about" class="nav-link" data-num="02">About</a>
+      <a href="#skills" class="nav-link" data-num="03">Skills</a>
+      <a href="#ai-tools" class="nav-link" data-num="04">AI Tools</a>
+      <a href="#projects" class="nav-link" data-num="05">Works</a>
+      <a href="#contact" class="nav-link" data-num="06">Contact</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="home">
+    <canvas id="heroCanvas"></canvas>
+    <!-- Grid overlay -->
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <!-- Availability tag -->
+      <div class="hero-tag" id="heroTag">
+        <span class="dot-live"></span>
+        <span class="mono">// Open to opportunities</span>
+      </div>
+
+      <!-- Main heading — split into letters for animation -->
+      <div class="hero-heading" id="heroHeading" aria-label="Full Stack Developer">
+        <div class="hero-word" id="word1">
+          <span class="hw-letter" style="--i:0">C</span><span class="hw-letter" style="--i:1">R</span><span
+            class="hw-letter" style="--i:2">E</span><span class="hw-letter" style="--i:3">A</span><span
+            class="hw-letter hw-space" style="--i:4">&thinsp;</span><span class="hw-letter" style="--i:5">T</span><span
+            class="hw-letter" style="--i:6">I</span><span class="hw-letter" style="--i:7">V</span><span
+            class="hw-letter" style="--i:8">E</span>
+        </div>
+        <div class="hero-word hero-word-stroke" id="word2">
+          <span class="hw-letter" style="--i:0">D</span><span class="hw-letter" style="--i:1">E</span><span
+            class="hw-letter" style="--i:2">V</span><span class="hw-letter" style="--i:3">E</span><span
+            class="hw-letter" style="--i:4">L</span><span class="hw-letter" style="--i:5">O</span><span
+            class="hw-letter" style="--i:6">P</span><span class="hw-letter" style="--i:7">E</span><span
+            class="hw-letter" style="--i:8">R</span>
+        </div>
+      </div>
+
+      <!-- Typewriter sub -->
+      <p class="hero-sub" id="heroSub">
+        <span class="mono accent-c">Muhammed Irfan V R</span>
+        <span class="hero-cursor-blink">|</span>
+        <br>Building immersive frontends &amp; scalable backends<br>
+        with modern design &amp; cutting-edge technology.
+      </p>
+
+      <div class="hero-actions" id="heroActions">
+        <a href="#projects" class="btn-primary" id="btn-work">
+          <span>View Works</span><i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="./assests/Muhammed Irfan.pdf" class="btn-ghost" download>
+          <span>Download CV</span><i class="fa-solid fa-download"></i>
+        </a>
+      </div>
+
+      <div class="hero-socials" id="heroSocials">
+        <a href="https://github.com/mivrAI" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><i
+            class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/muhammed-irfan-v-r-b86b81297/" target="_blank" rel="noopener"
+          class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/vr.irfaan?igsh=OGs3aGZiYzd0NnBi" target="_blank" rel="noopener"
+          class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/919074211519" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp"><i
+            class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" id="heroScroll">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span class="mono">SCROLL</span>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="hero-stats" id="heroStats">
+      <div class="stat">
+        <span class="stat-num" data-target="20">0</span><span class="stat-plus">+</span>
+        <span class="stat-lbl">Projects</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="2">0</span><span class="stat-plus">+</span>
+        <span class="stat-lbl">Years Exp.</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="100">0</span><span class="stat-plus">%</span>
+        <span class="stat-lbl">Passion</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="section-eyebrow">
+      <span class="eyebrow-num mono">02</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-txt mono">About Me</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-img-wrap gs-reveal-left">
+        <div class="about-frame">
+          <img src="./assests/about.jpg" alt="Muhammed Irfan" class="about-img" loading="lazy">
+          <div class="about-glow" aria-hidden="true"></div>
+        </div>
+        <div class="about-badge gs-reveal-up">
+          <i class="fa-solid fa-code"></i>
+          <span>Full Stack Developer</span>
+        </div>
+        <div class="about-badge-2 gs-reveal-up">
+          <i class="fa-solid fa-code"></i>
+          <span>Web Developer</span>
+        </div>
+        <div class="about-badge-3 gs-reveal-up">
+          <i class="fa-solid fa-code"></i>
+          <span>Front End Developer</span>
+        </div>
+      </div>
+      <div class="about-content">
+        <h2 class="section-title gs-reveal-up">Who Am I<span class="accent">?</span></h2>
+        <p class="about-text gs-reveal-up" style="--d:.1s">
+          I'm <strong>Muhammed Irfan V R</strong>, a passionate Full Stack Web Developer from Kerala, India.
+          I craft high-performance, visually stunning web applications that blend aesthetic design
+          with clean, efficient code. My expertise spans from interactive frontends to scalable backends.
+        </p>
+        <p class="about-text gs-reveal-up" style="--d:.2s">
+          I thrive on transforming intricate logic into pixel-perfect interfaces — blurring the line between engineering and digital art to create seamless, impactful user experiences.
+        </p>
+        <div class="about-info-grid gs-reveal-up" style="--d:.3s">
+          <div class="info-chip">
+            <span class="chip-lbl mono">Name</span>
+            <span class="chip-val">Muhammed Irfan V R</span>
+          </div>
+          <div class="info-chip">
+            <span class="chip-lbl mono">Phone</span>
+            <span class="chip-val">+91 9074211519</span>
+          </div>
+          <div class="info-chip">
+            <span class="chip-lbl mono">Email</span>
+            <span class="chip-val">irfan.techai@gmail.com</span>
+          </div>
+          <div class="info-chip">
+            <span class="chip-lbl mono">Location</span>
+            <span class="chip-val">Kerala, India</span>
+          </div>
+        </div>
+        <div class="gs-reveal-up" style="--d:.4s">
+          <a href="./assests/Muhammed Irfan.pdf" class="btn-primary" download>
+            <span>Download Resume</span><i class="fa-solid fa-file-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
+    <div class="section-eyebrow">
+      <span class="eyebrow-num mono">03</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-txt mono">Skills</span>
+    </div>
+    <div class="section-hdr gs-reveal-up">
+      <h2 class="section-title">My Tech <span class="accent">Stack</span></h2>
+      <p class="section-sub">Tools and technologies I work with daily</p>
+    </div>
+    <div class="bento-grid" id="skillsGrid">
+      <!-- JS (2x2) -->
+      <div class="bento-item col-span-2 row-span-2 js-bento gs-skill" data-tilt>
+        <i class="fa-brands fa-js bento-icon-bg"></i>
+        <div class="bento-content" style="justify-content: flex-end;">
+          <i class="fa-brands fa-js bento-icon mb-icon"></i>
+          <span class="sk-name">JavaScript</span>
+          <p class="bento-desc">The core language driving my interactive frontends and dynamic backend logic.</p>
+        </div>
+      </div>
+
+      <!-- React (2x1) -->
+      <div class="bento-item col-span-2 react-bento gs-skill" data-tilt>
+        <div class="bento-content flex-row">
+          <i class="fa-brands fa-react bento-icon"></i>
+          <div class="bento-text">
+            <span class="sk-name">React.js</span>
+            <p class="bento-desc">Building modular, responsive & dynamic UIs.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- HTML (1x1) -->
+      <div class="bento-item gs-skill" data-tilt>
+        <i class="fa-brands fa-html5 bento-icon html-color"></i>
+        <span class="sk-name">HTML5</span>
+      </div>
+
+      <!-- CSS (1x1) -->
+      <div class="bento-item gs-skill" data-tilt>
+        <i class="fa-brands fa-css3-alt bento-icon css-color"></i>
+        <span class="sk-name">CSS3</span>
+      </div>
+
+      <!-- Python (1x2) -->
+      <div class="bento-item row-span-2 python-bento gs-skill" data-tilt>
+        <div class="bento-content" style="align-items: center; justify-content: center; text-align: center;">
+          <i class="fa-brands fa-python bento-icon mb-icon"></i>
+          <span class="sk-name">Python</span>
+        </div>
+        <p class="vertical-text mono">Data & Backend</p>
+      </div>
+
+      <!-- Node.js (2x1) -->
+      <div class="bento-item col-span-2 node-bento gs-skill" data-tilt>
+        <div class="bento-content flex-row">
+          <i class="fa-brands fa-node-js bento-icon"></i>
+          <div class="bento-text">
+            <span class="sk-name">Node.js</span>
+            <p class="bento-desc">High-performance scalable server runtime.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHP (1x1) -->
+      <div class="bento-item gs-skill" data-tilt>
+        <i class="fa-brands fa-php bento-icon php-color"></i>
+        <span class="sk-name">PHP</span>
+      </div>
+
+      <!-- WP (2x1) -->
+      <div class="bento-item col-span-2 wp-bento gs-skill" data-tilt>
+        <div class="bento-content flex-row">
+          <i class="fa-brands fa-wordpress bento-icon"></i>
+          <div class="bento-text">
+            <span class="sk-name">WordPress</span>
+            <p class="bento-desc">Custom theme development & CMS integration.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Git (1x1) -->
+      <div class="bento-item gs-skill" data-tilt>
+        <i class="fa-brands fa-git-alt bento-icon git-color"></i>
+        <span class="sk-name">Git</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AI TOOLS ===== -->
+  <section id="ai-tools">
+    <div class="ai-split-layout">
+      
+      <!-- Left: Sticky Header -->
+      <div class="ai-left-pane gs-reveal-left">
+        <div class="section-eyebrow">
+          <span class="eyebrow-num mono">04</span>
+          <span class="eyebrow-line"></span>
+          <span class="eyebrow-txt mono">AI Tools</span>
+        </div>
+        <h2 class="section-title">AI-Powered <br><span class="accent">Workflow</span></h2>
+        <p class="section-sub">Leveraging cutting-edge AI to accelerate development, supercharge reasoning, and unlock creativity.</p>
+        
+        <div class="ai-quote mt-quote">
+          <div class="quote-bar"></div>
+          <p class="quote-text">"AI doesn't replace the developer — it amplifies what a great developer can build."</p>
+          <span class="quote-by mono">— Muhammed Irfan</span>
+        </div>
+      </div>
+
+      <!-- Right: Stack of tools -->
+      <div class="ai-right-pane ai-stack">
+        
+        <!-- Tool 1 -->
+        <div class="ai-stack-item gs-ai-card">
+          <div class="ai-icon-box" style="color: #10a37f; background: rgba(16, 163, 127, 0.1);">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+              <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.843-3.369 2.02-1.168a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.402-.681zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08-4.778 2.758a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z" />
+            </svg>
+          </div>
+          <div class="ai-stack-info">
+            <div class="ai-stack-hdr">
+              <h3 class="ai-name">ChatGPT</h3>
+              <span class="ai-badge mono">Daily Use</span>
+            </div>
+            <p class="ai-desc">My go-to for problem-solving, code debugging, documentation, and brainstorming architectural decisions.</p>
+            <div class="ai-tags">
+              <span class="ai-tag">Code Review</span>
+              <span class="ai-tag">Debugging</span>
+              <span class="ai-tag">Ideation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 2 -->
+        <div class="ai-stack-item gs-ai-card">
+          <div class="ai-icon-box" style="color: #0078d4; background: rgba(0, 120, 212, 0.1);">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div class="ai-stack-info">
+            <div class="ai-stack-hdr">
+              <h3 class="ai-name">GitHub Copilot</h3>
+              <span class="ai-badge mono">Extension</span>
+            </div>
+            <p class="ai-desc">AI pair-programmer that supercharges my coding workflow with intelligent autocomplete and context-aware suggestions.</p>
+            <div class="ai-tags">
+              <span class="ai-tag">Autocomplete</span>
+              <span class="ai-tag">Refactoring</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 3 -->
+        <div class="ai-stack-item gs-ai-card">
+          <div class="ai-icon-box" style="color: #a855f7; background: rgba(168, 85, 247, 0.1);">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+               <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm5.885 7.745h-2.25V16.5h-3v-8.76H5.127V5.25H17.88l.005 2.495z" />
+            </svg>
+          </div>
+          <div class="ai-stack-info">
+            <div class="ai-stack-hdr">
+              <h3 class="ai-name">Antigravity AI</h3>
+              <span class="ai-badge mono">Agentic</span>
+            </div>
+            <p class="ai-desc">Advanced agentic coding assistant for complex multi-file refactoring, architecture planning, and high-level code generation.</p>
+            <div class="ai-tags">
+              <span class="ai-tag">Agentic</span>
+              <span class="ai-tag">Refactoring</span>
+              <span class="ai-tag">Planning</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 4 -->
+        <div class="ai-stack-item gs-ai-card">
+          <div class="ai-icon-box" style="color: #00d4ff; background: rgba(0, 212, 255, 0.1);">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <div class="ai-stack-info">
+            <div class="ai-stack-hdr">
+              <h3 class="ai-name">Claude AI</h3>
+              <span class="ai-badge mono">Reasoning</span>
+            </div>
+            <p class="ai-desc">Used for long-context code analysis, writing extensive technical documentation, and nuanced reasoning about system design.</p>
+            <div class="ai-tags">
+              <span class="ai-tag">Reasoning</span>
+              <span class="ai-tag">Analysis</span>
+              <span class="ai-tag">Docs</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <div class="section-eyebrow">
+      <span class="eyebrow-num mono">05</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-txt mono">Featured Works</span>
+    </div>
+    <div class="section-hdr gs-reveal-up">
+      <h2 class="section-title">Selected <span class="accent">Projects</span></h2>
+      <p class="section-sub">Real-world solutions crafted with passion and precision</p>
+    </div>
+
+    <!-- Project List Layout -->
+    <div class="projects-list">
+
+      <!-- Project Item 1 — Featured Large -->
+      <div class="proj-item proj-featured gs-proj">
+        <div class="proj-num mono">01</div>
+        <div class="proj-img-pane">
+          <img src="./img/pro1.png" alt="ChargeHub EV System" class="proj-img" loading="lazy">
+          <div class="proj-img-overlay">
+            <a href="https://github.com/mivrAI/ChargeHub-frontend" target="_blank" rel="noopener" class="proj-view-btn"
+              aria-label="View on GitHub">
+              <i class="fa-brands fa-github"></i> View Repo
+            </a>
+          </div>
+        </div>
+        <div class="proj-info-pane">
+          <div class="proj-tags">
+            <span class="tag">PHP</span><span class="tag">HTML</span><span class="tag">CSS</span>
+          </div>
+          <h3 class="proj-title">ChargeHub<br><span class="proj-sub-title">EV Charging Booking System</span></h3>
+          <p class="proj-desc">A full-featured web application for booking electric vehicle charging stations — complete
+            with real-time slot management, user dashboard, and a clean admin interface.</p>
+          <div class="proj-links">
+            <a href="https://github.com/mivrAI/ChargeHub-frontend" target="_blank" rel="noopener" class="proj-link"
+              aria-label="GitHub">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Item 2 -->
+      <div class="proj-item gs-proj">
+        <div class="proj-num mono">02</div>
+        <div class="proj-img-pane">
+          <img src="./img/pro2.png" alt="Virtual Shopping" class="proj-img" loading="lazy">
+          <div class="proj-img-overlay">
+            <a href="https://github.com/mivrAI/virtual-shop" target="_blank" rel="noopener" class="proj-view-btn"
+              aria-label="View on GitHub">
+              <i class="fa-brands fa-github"></i> View Repo
+            </a>
+          </div>
+        </div>
+        <div class="proj-info-pane">
+          <div class="proj-tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+          </div>
+          <h3 class="proj-title">Virtual Shop<br><span class="proj-sub-title">AR Try-On Platform</span></h3>
+          <p class="proj-desc">An immersive e-commerce experience with augmented-reality try-on, product search, and
+            secure payment integration for fashion and accessories.</p>
+          <div class="proj-links">
+            <a href="https://github.com/mivrAI/virtual-shop" target="_blank" rel="noopener" class="proj-link">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Item 3 — Compact 2-col grid below -->
+      <div class="proj-item gs-proj">
+        <div class="proj-num mono">03</div>
+        <div class="proj-img-pane proj-img-icon">
+          <div class="proj-icon-bg"><i class="fa-brands fa-spotify"></i></div>
+          <div class="proj-img-overlay">
+            <a href="https://github.com/mivrAI/nivra-music" target="_blank" rel="noopener" class="proj-view-btn">
+              <i class="fa-brands fa-github"></i> View Repo
+            </a>
+          </div>
+        </div>
+        <div class="proj-info-pane">
+          <div class="proj-tags"><span class="tag">JavaScript</span><span class="tag">Node.js</span></div>
+          <h3 class="proj-title">Nivra Music<br><span class="proj-sub-title">Streaming App</span></h3>
+          <p class="proj-desc">Full-stack music platform with playlist management and real-time audio playback.</p>
+          <a href="https://github.com/mivrAI/nivra-music" target="_blank" rel="noopener" class="proj-link">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="proj-item gs-proj">
+        <div class="proj-num mono">04</div>
+        <div class="proj-img-pane proj-img-icon">
+          <div class="proj-icon-bg"><i class="fa-solid fa-comments"></i></div>
+          <div class="proj-img-overlay">
+            <a href="https://github.com/mivrAI/chatgram" target="_blank" rel="noopener" class="proj-view-btn">
+              <i class="fa-brands fa-github"></i> View Repo
+            </a>
+          </div>
+        </div>
+        <div class="proj-info-pane">
+          <div class="proj-tags"><span class="tag">React</span><span class="tag">Socket.io</span></div>
+          <h3 class="proj-title">ChatGram<br><span class="proj-sub-title">Real-time Chat App</span></h3>
+          <p class="proj-desc">Real-time messaging with rooms, live presence and WebSocket backbone.</p>
+          <a href="https://github.com/mivrAI/chatgram" target="_blank" rel="noopener" class="proj-link">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="proj-item gs-proj">
+        <div class="proj-num mono">05</div>
+        <div class="proj-img-pane proj-img-icon">
+          <div class="proj-icon-bg"><i class="fa-solid fa-plane-departure"></i></div>
+          <div class="proj-img-overlay">
+            <a href="https://github.com/mivrAI/travel-on" target="_blank" rel="noopener" class="proj-view-btn">
+              <i class="fa-brands fa-github"></i> View Repo
+            </a>
+          </div>
+        </div>
+        <div class="proj-info-pane">
+          <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
+          </div>
+          <h3 class="proj-title">Travel-On<br><span class="proj-sub-title">Travel Booking UI</span></h3>
+          <p class="proj-desc">Visually captivating travel platform UI with destination search and animated hero
+            sections.</p>
+          <a href="https://github.com/mivrAI/travel-on" target="_blank" rel="noopener" class="proj-link">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="proj-item gs-proj">
+        <div class="proj-num mono">06</div>
+        <div class="proj-img-pane proj-img-icon">
+          <div class="proj-icon-bg"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="proj-img-overlay">
+            <a href="https://github.com/mivrAI/learn-hub" target="_blank" rel="noopener" class="proj-view-btn">
+              <i class="fa-brands fa-github"></i> View Repo
+            </a>
+          </div>
+        </div>
+        <div class="proj-info-pane">
+          <div class="proj-tags"><span class="tag">JavaScript</span><span class="tag">HTML</span></div>
+          <h3 class="proj-title">LearnHub<br><span class="proj-sub-title">E-Learning Platform</span></h3>
+          <p class="proj-desc">Interactive learning platform with course progress tracking and quizzes.</p>
+          <a href="https://github.com/mivrAI/learn-hub" target="_blank" rel="noopener" class="proj-link">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects-cta gs-reveal-up">
+      <a href="https://github.com/mivrAI" target="_blank" rel="noopener" class="btn-ghost">
+        <span>All 28 Repositories</span><i class="fa-brands fa-github"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="section-eyebrow">
+      <span class="eyebrow-num mono">06</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-txt mono">Contact</span>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-left gs-reveal-left">
+        <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+        <p class="contact-desc">Have a project in mind or just want to say hi? My inbox is always open — I'll get back
+          to you fast.</p>
+        <div class="contact-info-list">
+          <a href="mailto:irfan.techai@gmail.com" class="c-info-row">
+            <div class="c-info-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div><span class="ci-lbl mono">Email</span><span class="ci-val">irfan.techai@gmail.com</span></div>
+          </a>
+          <a href="tel:+919074211519" class="c-info-row">
+            <div class="c-info-icon"><i class="fa-solid fa-phone"></i></div>
+            <div><span class="ci-lbl mono">Phone</span><span class="ci-val">+91 9074211519</span></div>
+          </a>
+          <div class="c-info-row">
+            <div class="c-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div><span class="ci-lbl mono">Location</span><span class="ci-val">Kerala, India</span></div>
+          </div>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/mivrAI" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><i
+              class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/muhammed-irfan-v-r-b86b81297/" target="_blank" rel="noopener"
+            class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/irfaan.vr?igsh=OGs3aGZiYzd0NnBi" target="_blank" rel="noopener"
+            class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/919074211519" target="_blank" rel="noopener" class="social-link"
+            aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="contact-right gs-reveal-right">
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-grp">
+              <label for="fname">Name</label>
+              <input type="text" id="fname" name="name" placeholder="Your name" required autocomplete="off">
+            </div>
+            <div class="form-grp">
+              <label for="femail">Email</label>
+              <input type="email" id="femail" name="email" placeholder="you@example.com" required autocomplete="off">
+            </div>
+          </div>
+          <div class="form-grp">
+            <label for="fsubject">Subject</label>
+            <input type="text" id="fsubject" name="subject" placeholder="Project inquiry" autocomplete="off">
+          </div>
+          <div class="form-grp">
+            <label for="fmsg">Message</label>
+            <textarea id="fmsg" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-btn" id="submitBtn">
+            <span>Send Message</span><i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo"><span class="lb">&lt;</span><span class="ln">MI</span><span
+          class="lb">/&gt;</span></span>
+      <p class="footer-txt">&copy; 2025 Muhammed Irfan V R · All rights reserved</p>
+      <a href="#home" class="back-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+  </footer>
+
+  <!-- ===== THREE.JS ===== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script>
+    /* =====================================================
+       PORTFOLIO — MAIN SCRIPT
+    ===================================================== */
+
+    /* ── 1. LOADER ─────────────────────────────────── */
+    (function loader() {
+      const bar = document.getElementById('loaderBar');
+      const pct = document.getElementById('loaderPct');
+      const el = document.getElementById('loader');
+      let v = 0;
+      const tick = setInterval(() => {
+        v += Math.random() * 15 + 4;
+        if (v >= 100) {
+          v = 100;
+          clearInterval(tick);
+          bar.style.width = '100%';
+          pct.textContent = '100%';
+          setTimeout(() => {
+            el.style.opacity = '0';
+            el.style.pointerEvents = 'none';
+            setTimeout(() => {
+              el.style.display = 'none';
+              document.body.classList.add('loaded');
+              heroEntrance();
+            }, 600);
+          }, 300);
+        }
+        bar.style.width = v + '%';
+        pct.textContent = Math.floor(v) + '%';
+      }, 70);
+    })();
+
+    /* ── 2. CURSOR ─────────────────────────────────── */
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0, cursorActive = false;
+    window.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      if (!cursorActive) {
+        cursorActive = true;
+        movRing();
+      }
+    }, { passive: true });
+    function movRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      dot.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
+      ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+      if (Math.abs(mx - rx) > 0.1 || Math.abs(my - ry) > 0.1) {
+        requestAnimationFrame(movRing);
+      } else {
+        cursorActive = false;
+      }
+    }
+    document.querySelectorAll('a,button,.skill-card,.proj-item,.ai-card').forEach(el => {
+      el.addEventListener('mouseenter', () => { ring.classList.add('hov'); dot.classList.add('hov'); });
+      el.addEventListener('mouseleave', () => { ring.classList.remove('hov'); dot.classList.remove('hov'); });
+    });
+
+    /* ── 3. THREE.JS PARTICLE WAVE (optimised) ──────── */
+    (function waves() {
+      const canvas = document.getElementById('heroCanvas');
+      // Skip on low-end / mobile touch devices to avoid lag
+      if (window.matchMedia('(pointer: coarse)').matches) {
+        canvas.style.display = 'none';
+        return;
+      }
+
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
+      renderer.setPixelRatio(1); // always 1 — biggest perf win
+      renderer.setSize(innerWidth, innerHeight);
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 1000);
+      camera.position.z = 26;
+
+      // Reduced grid: 50×25 = 1 250 pts (was 4 050)
+      const W = 50, H = 25, SEP = 1.4;
+      const pos = [], iy = [];
+      for (let i = 0; i < W; i++) for (let j = 0; j < H; j++) {
+        pos.push((i - W / 2) * SEP, (j - H / 2) * SEP, 0);
+        iy.push((j - H / 2) * SEP);
+      }
+      const geo = new THREE.BufferGeometry();
+      const pa = new Float32Array(pos);
+      geo.setAttribute('position', new THREE.BufferAttribute(pa, 3));
+      const mat = new THREE.PointsMaterial({
+        color: 0xc8b89a, size: 0.14,
+        transparent: true, opacity: 0.35,
+        sizeAttenuation: true
+      });
+      const pts = new THREE.Points(geo, mat);
+      scene.add(pts);
+
+      let pmx = 0, pmy = 0;
+      window.addEventListener('mousemove', e => {
+        pmx = (e.clientX / innerWidth - 0.5) * 2;
+        pmy = -(e.clientY / innerHeight - 0.5) * 2;
+      }, { passive: true });
+      window.addEventListener('resize', () => {
+        camera.aspect = innerWidth / innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(innerWidth, innerHeight);
+      });
+
+      let t = 0, lastTime = 0;
+      function anim(now) {
+        requestAnimationFrame(anim);
+        // Throttle to ~40fps to save CPU/GPU
+        if (now - lastTime < 25) return;
+        lastTime = now;
+        t += 0.018;
+        const p = geo.attributes.position.array;
+        for (let i = 0; i < W * H; i++) {
+          const xi = p[i * 3], yi = iy[i];
+          p[i * 3 + 2] = Math.sin(xi * 0.22 + t) * Math.cos(yi * 0.22 + t) * 2.5;
+        }
+        geo.attributes.position.needsUpdate = true;
+        pts.rotation.x += (pmy * 0.05 - pts.rotation.x) * 0.04;
+        pts.rotation.y += (pmx * 0.05 - pts.rotation.y) * 0.04;
+        renderer.render(scene, camera);
+      }
+      requestAnimationFrame(anim);
+    })();
+
+    /* ── 4. HERO ENTRANCE ──────────────────────────── */
+    function heroEntrance() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Letters stagger
+      gsap.fromTo('.hw-letter', {
+        y: 120, opacity: 0, skewY: 10
+      }, {
+        y: 0, opacity: 1, skewY: 0,
+        duration: 0.9,
+        ease: 'expo.out',
+        stagger: 0.045,
+        delay: 0.1
+      });
+
+      gsap.fromTo('#heroTag', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 0.2 });
+      gsap.fromTo('#heroSub', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.85 });
+      gsap.fromTo('#heroActions', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 1.05 });
+      gsap.fromTo('#heroSocials', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 1.2 });
+      gsap.fromTo('#heroScroll', { opacity: 0 }, { opacity: 1, duration: 1, delay: 1.5 });
+      gsap.fromTo('#heroStats', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 1.3 });
+
+      // Counter
+      document.querySelectorAll('.stat-num').forEach(el => {
+        const target = +el.dataset.target;
+        gsap.to({ v: 0 }, {
+          v: target, duration: 2, delay: 1.5, ease: 'power2.out',
+          onUpdate: function () { el.textContent = Math.floor(this.targets()[0].v); },
+          onComplete: function () { el.textContent = target; }
+        });
+      });
+
+      setupScrollAnimations();
+    }
+
+    /* ── 5. SCROLL ANIMATIONS ──────────────────────── */
+    function setupScrollAnimations() {
+      // Navbar scroll style
+      ScrollTrigger.create({
+        start: 60,
+        onEnter: () => document.getElementById('navbar').classList.add('scrolled'),
+        onLeaveBack: () => document.getElementById('navbar').classList.remove('scrolled'),
+      });
+
+      // Generic reveal-up
+      gsap.utils.toArray('.gs-reveal-up').forEach(el => {
+        gsap.fromTo(el,
+          { y: 60, opacity: 0 },
+          {
+            y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
+            delay: parseFloat(el.style.getPropertyValue('--d') || 0)
+          }
+        );
+      });
+
+      // Reveal left
+      gsap.utils.toArray('.gs-reveal-left').forEach(el => {
+        gsap.fromTo(el,
+          { x: -80, opacity: 0 },
+          {
+            x: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+          }
+        );
+      });
+
+      // Reveal right
+      gsap.utils.toArray('.gs-reveal-right').forEach(el => {
+        gsap.fromTo(el,
+          { x: 80, opacity: 0 },
+          {
+            x: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+          }
+        );
+      });
+
+      // Skill cards stagger
+      gsap.fromTo('.gs-skill',
+        { y: 50, opacity: 0, scale: 0.9 },
+        {
+          y: 0, opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.5)', stagger: 0.1,
+          scrollTrigger: { trigger: '#skillsGrid', start: 'top 82%', toggleActions: 'play none none none' }
+        }
+      );
+
+
+
+      // AI cards stagger
+      gsap.fromTo('.gs-ai-card',
+        { y: 60, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', stagger: 0.12,
+          scrollTrigger: { trigger: '.ai-stack', start: 'top 82%', toggleActions: 'play none none none' }
+        }
+      );
+
+      // Project items — slide in alternating
+      gsap.utils.toArray('.gs-proj').forEach((el, i) => {
+        gsap.fromTo(el,
+          { x: i % 2 === 0 ? -60 : 60, opacity: 0 },
+          {
+            x: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 87%', toggleActions: 'play none none none' }
+          }
+        );
+      });
+
+      // Section eyebrows
+      gsap.utils.toArray('.section-eyebrow').forEach(el => {
+        gsap.fromTo(el,
+          { opacity: 0, x: -30 },
+          {
+            opacity: 1, x: 0, duration: 0.6, ease: 'power2.out',
+            scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' }
+          }
+        );
+      });
+
+      // Parallax on hero canvas (disabled on mobile for perf)
+      if (!window.matchMedia('(pointer: coarse)').matches) {
+        gsap.to('#heroCanvas', {
+          y: '15%', ease: 'none',
+          scrollTrigger: {
+            trigger: '#home', start: 'top top',
+            end: 'bottom top', scrub: 2 // higher scrub = less jank
+          }
+        });
+      }
+    }
+
+    /* ── 6. NAVBAR ─────────────────────────────────── */
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-link').forEach(l => {
+      l.addEventListener('click', () => { hamburger.classList.remove('open'); navLinks.classList.remove('open'); });
+    });
+
+    // Active link on scroll
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('section').forEach(s => {
+        if (window.scrollY >= s.offsetTop - 140) {
+          document.querySelectorAll('.nav-link').forEach(l => {
+            l.classList.toggle('active', l.getAttribute('href') === '#' + s.id);
+          });
+        }
+      });
+    });
+
+    /* ── 7. 3D TILT ON SKILL CARDS ─────────────────── */
+    document.querySelectorAll('[data-tilt]').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(500px) rotateY(${x * 18}deg) rotateX(${-y * 18}deg) translateZ(12px)`;
+        
+        // Mouse tracking for dynamic glow
+        card.style.setProperty('--mouse-x', `${e.clientX - r.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - r.top}px`);
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(500px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
+      });
+    });
+
+    /* ── 8. CONTACT FORM ───────────────────────────── */
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.innerHTML = '<span>Sent!</span><i class="fa-solid fa-check"></i>';
+      btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
+      setTimeout(() => {
+        btn.innerHTML = '<span>Send Message</span><i class="fa-solid fa-paper-plane"></i>';
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    });
+
+    /* ── 9. SMOOTH SCROLL ──────────────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+
+</html>
