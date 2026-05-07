@@ -1948,6 +1948,16 @@ footer {
         margin: 0 auto;
     }
 
+    .about-badge-2 {
+        right: 150px;
+        bottom: 50px;
+    }
+
+    .about-badge-3 {
+        right: 200px;
+        bottom: -25px;
+    }
+
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 48px;
