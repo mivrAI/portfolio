@@ -48,7 +48,6 @@ body {
     color: var(--white);
     font-family: var(--font-main);
     overflow-x: hidden;
-    cursor: none;
 }
 
 body:not(.loaded) {
@@ -196,15 +195,16 @@ button {
     opacity: 0.25;
 }
 
-@media (pointer: coarse) {
+@media (pointer: fine) {
+    body {
+        cursor: none;
+    }
+}
 
+@media (pointer: coarse) {
     #cursor-dot,
     #cursor-ring {
         display: none;
-    }
-
-    body {
-        cursor: auto;
     }
 }
 
@@ -2064,7 +2064,17 @@ footer {
     }
 
     .hw-letter {
-        font-size: clamp(3rem, 12vw, 4.5rem);
+        font-size: clamp(5rem, 24vw, 12rem);
+        letter-spacing: -0.001em;
+    }
+
+    .hero-heading {
+        line-height: 0.88;
+    }
+
+    #home {
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
     /* Project styles removed to avoid conflict with carousel */
